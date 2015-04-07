@@ -118,10 +118,35 @@
 	- kleinere Werte für $p$:interpolierter Wert mehr durch entfernte Punkte beeinflusst
 - zur Berechnung eines Punktes werden alle Werte miteinbezogen
 
+![](shephard.png)
+
+- Diagramm Interpretation
+	- interpolierter Wert von **allen** Werten abhängig
+	- interpolierter Wert strebt zu Mittelwert
+
 #### Modifizierte Shepard-Interpolation
 - nur Betrachtung von Punkten, die in Radius $R$ liegen
 
+### Voronoi-Diagramme
+- Zerlegung des Beobachtungsraumes in Voronoizellen 
+- Bestimmung durch vorgegebene Menge an Punkten =**Zentren**
 
+![](voronoi.png)
+
+- für $B \subset R^b$ ***Folie 74 unklar***
+- sofort ist ersichtlich, dass Voronoizellen endliche Schnitte von Halbräumen sind $\rightarrow$ Voronoipolygone
+- Eigenschaften
+	- konvex, da Schnitte konvexer Mengen selbst konvex
+	- jeder Eckpunkt Schnittpunkt von mindestens drei Kanten
+	- im Umkreis jedes Dreiecks liegt kein anderer Punkt
+
+![Konvexe Menge](Convex.png)
+![Nichtkonvexe Menge](Non_Convex.png)
+
+- Bedeutende Repräsentationen
+	1. Array 
+	- ***und wozu das ganze***
+die durch eine vorgegebene Menge an Punkten des Raumes, hier als Zentren bezeichnet, bestimmt werden. Jede Region wird durch genau ein Zentrum bestimmt und umfasst alle Punkte des Raumes, die in Bezug zur euklidischen Metrik näher an dem Zentrum der Region liegen als an jedem anderen Zentrum. Derartige Regionen werden auch als Voronoi-Regionen bezeichnet. Aus allen Punkten, die mehr als ein nächstgelegenes Zentrum besitzen und somit die Grenzen der Regionen bilden, entsteht das Voronoi-Diagramm.
 
 
 
