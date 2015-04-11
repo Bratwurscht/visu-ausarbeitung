@@ -21,8 +21,8 @@
 - **Struktur** der Definitionsmenge (strukturiert oder unstrukturiert)
 - **Struktur** der Nachbarschaftsrelation
 	- keine $\rightarrow$ Scattered Data
-	- unstrukturiert ***Wo ist der Unterschied zwischen unstrukturiert und keine Struktur***
-	- strukturiert
+	- unstrukturiert (Keine mathematischen Beziehungen zwischen Punkten - aber es gibt Relationen) 
+	- strukturiert (Beziehungen zwischen Punkten können mathematisch beschrieben werden)
 - **Dimension** der Nachbarschaftsrelation (Dimension der Zellen=1,2,3,4,...)
 - Wertebereiche der Funktionen (Skalare, Vektoren, Tensoren, diskrete Wertebereiche, Verteilungsfunktionen, Farben)
 
@@ -35,10 +35,14 @@
 3. Abbildbarkeit
 	- schnelle Umwandlung der Daten in Grafikprimitive und Attribute
 	- einfache Konvertierung des Ausgangsformates in internes Format des Systems
-4. Einfachheit
-	- Bevorzugung einfacher Repräsentationen, da meist leicher optimierbar
+
+**Kompromiss finden zwischen Speichereffizenz und Zugriffseffizenz**
+
+Deshalb häufig, bevorzugung einfacher Repräsentationen, da meist leicher optimierbar
+
 
 ## Typen von Daten
+
 ### Klassifizierung
 - Geordnet
 	- Ordinal oder Quantitativ
@@ -65,7 +69,7 @@
 - Darstellung durch Funktion $f:D\rightarrow Z$
 	- Definitionsbereich $D\subseteq \mathbb{R}^d$
 	- Zielmenge $Z\subseteq \mathbb{R}^a$
-- wenn Defintionsmenge $\mathbb{R}^2$ $\rightarrow$ Ebene, $\mathbb{R}^3$ $\rightarrow$ 3D-Raum, $\mathbb{R}^4$ $\rightarrow$ Raum+Zeit = **Feld**
+- wenn Defintionsmenge $\mathbb{R}^2$ $\rightarrow$ Ebene, $\mathbb{R}^3$ $\rightarrow$ 3D-Raum, $\mathbb{R}^4$ $\rightarrow$ Raum+Zeit = **Feld** ***Aber ein Feld ist doch nicht nur da wenn Zeit??***
 - Stetigkeit
 	- Funktion heißt **stetig mit Ordnung k** oder $C^k$-stetig, wenn Funktion und alle Ableitung bis einschließlich Ordnung k stetig
 
@@ -77,7 +81,6 @@
 	- $C$ Wertebereich 
 - **Geometrische Dimension**
 	- Dimension $d$ des Raumes $\mathbb{R}^d$
-	- 
 - **Topologische Dimension**
 	- Dimension $s \leq d$ = topologische Dimension
 	- Dimension des Definitionsbereiches kleiner/gleich der des Wertebereiches
@@ -109,6 +112,8 @@
 	- Hardys Multiquadrics
 	- lokal konstante Interpolation auf Voronoizellen
 
+\newpage
+
 ### Shepard-Interpolation (Inverse Distanzwichtung)
 - Annahme: je weiter ein unbekannter Messwert von einem bekannten Messwert, desto unähnlicher sind diese
 - Multiplikationdes Messwertes mit Inversen des Abstandes zwischen Schätzpunkt und Messort
@@ -116,7 +121,8 @@
 	- $p>0$ power Parameter
 	- größere Werte für $p$: Einfluss von nahen Punkten größer $\rightarrow$ Voronoi Diagramme
 	- kleinere Werte für $p$:interpolierter Wert mehr durch entfernte Punkte beeinflusst
-- zur Berechnung eines Punktes werden alle Werte miteinbezogen
+- zur Berechnung eines Punktes werden alle Werte der anderen Punkte miteinbezogen
+- Nachteil: Die Berechnung erfolgt immer auf allen Punkten. Deshalb zu Langsam für große Datensätze.
 
 ![](shephard.png)
 
