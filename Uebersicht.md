@@ -4,11 +4,13 @@
 \newcommand{\im}[1]{$\operatorname{Im}(#1)$}
 
 # Datenformate und Gittermodelle
+
 - Unterscheidung von Daten nach Quelle
 	1. Messdaten
 	2. Simulationsdaten
 
 ## Aufbau von Datensätzen
+
 1. Diskrete Definitionsmenge $D$ als Teilmenge des Beobachtungsraumes $\mathcal{R}^b$ 
 	- Geometrie des Datensatzes
 2. Nachbarschaftsrelation der Punkte der Definitionsmenge 
@@ -17,6 +19,7 @@
 	- Attribute des Datensatzes
 
 ## Eigenschaften von Datensätzen
+
 - **Dimension** des Beobachtungsraumes ($b=1,2,3,4, ...$)
 - **Struktur** der Definitionsmenge (strukturiert oder unstrukturiert)
 - **Struktur** der Nachbarschaftsrelation
@@ -27,6 +30,7 @@
 - Wertebereiche der Funktionen (Skalare, Vektoren, Tensoren, diskrete Wertebereiche, Verteilungsfunktionen, Farben)
 
 ## Anforderungen Visualisierungssystem
+
 1. Kompakte Datenrepräsentation
 	- sehr große Datensätze $\rightarrow$ speichereffiziente Repräsentation
 2. Effizienz
@@ -40,10 +44,10 @@
 
 Deshalb häufig, bevorzugung einfacher Repräsentationen, da meist leicher optimierbar
 
-
 ## Typen von Daten
 
 ### Klassifizierung
+
 - Geordnet
 	- Ordinal oder Quantitativ
 		- Ordinal: Kleidergröße, Ranglistenplatz
@@ -54,6 +58,7 @@ Deshalb häufig, bevorzugung einfacher Repräsentationen, da meist leicher optim
 - Kategorisch (Dateiformate, Farben, Geschlecht, Typen)
 
 ### Skalare Werte
+
 - Nominale Werte
 	- Unterscheidung mehrerer Ausprägungen (also Unterscheidung durch Farben etc)
 - Ordinale/Diskrete Werte
@@ -62,10 +67,12 @@ Deshalb häufig, bevorzugung einfacher Repräsentationen, da meist leicher optim
 	- innerhalb Wertebereich alle Werte möglich (also Strahl mit allen Werten mit Farbverlauf etc)
 
 
+\newpage
 
 # Datensätze
 
 ## Kontinuerliche Daten
+
 - Darstellung durch Funktion $f:D\rightarrow Z$
 	- Definitionsbereich $D\subseteq \mathbb{R}^d$
 	- Zielmenge $Z\subseteq \mathbb{R}^a$
@@ -74,6 +81,7 @@ Deshalb häufig, bevorzugung einfacher Repräsentationen, da meist leicher optim
 	- Funktion heißt **stetig mit Ordnung k** oder $C^k$-stetig, wenn Funktion und alle Ableitung bis einschließlich Ordnung k stetig
 
 ## Begriffe
+
 - **Stetiger Datensatz**
 	- Tripel $D=(D,C,f)$ definiert stetigen Datensatz
 	- $D$ Definitionsmenge
@@ -86,9 +94,10 @@ Deshalb häufig, bevorzugung einfacher Repräsentationen, da meist leicher optim
 	- Dimension des Definitionsbereiches kleiner/gleich der des Wertebereiches
 - **Kodimension**
 	- Differenz aus geometrischer und topologischer Dimension
-- ***Unterschied topologische und geometrische Dimension nicht wirklich klar ***
+- ***Unterschied topologische und geometrische Dimension nicht wirklich klar***
 
 ## Diskrete Datensätze
+
 - fast alle wissenschaftlichen Daten = diskret
 - **Abtastung**
 	- Umwandlung von kontinuierlichen in diskreten Datensatz
@@ -97,6 +106,7 @@ Deshalb häufig, bevorzugung einfacher Repräsentationen, da meist leicher optim
 	- z.B. Interpolation
 
 ### Datenstrukturen
+
 - strukturierte Definitionsmenge
 	- Punkte liegen in regelmäßigen Abständen in bestimmten Beobachtungsraum $\mathbb{R}^b$
 	- geringerer Speicherverbrauch
@@ -105,20 +115,20 @@ Deshalb häufig, bevorzugung einfacher Repräsentationen, da meist leicher optim
 	- Lage Punkte explizit angegeben
 	- Lage nicht berechenbar
 
-## Scattered Data 
+## Scattered Data
+ 
 - Datensatz enthält keine Nachbarschaftsrelation
 - Einsatz von speziell angepassten Interpolations/Approximationsverfahren
 	- (modifiziertes) Shepard Verfahren
 	- Hardys Multiquadrics
 	- lokal konstante Interpolation auf Voronoizellen
 
-\newpage
-
 ### Shepard-Interpolation (Inverse Distanzwichtung)
+
 - Annahme: je weiter ein unbekannter Messwert von einem bekannten Messwert, desto unähnlicher sind diese
 - Multiplikationdes Messwertes mit Inversen des Abstandes zwischen Schätzpunkt und Messort
-- $f_r(x)=\sum\limits_{i=1}^{N}\frac{w_i(x)\cdot f_i}{\sum_{j=1}^{N} w_j(x)}$ mit Gewicht $w_i(x)=\frac{1}{d(x,x_i)^p}$
-	- $p>0$ power Parameter
+- $f_r(x)=\sum\limits_{i=1}^{N}\frac{w_{i} (x) \cdot f_{i}}{\sum_{j=1}^{N}w_{j}(x)}$ mit Gewicht $w_{i}(x)=\frac{1}{d(x , x_{i} )^p}$
+	- $p > 0$ power Parameter
 	- größere Werte für $p$: Einfluss von nahen Punkten größer $\rightarrow$ Voronoi Diagramme
 	- kleinere Werte für $p$:interpolierter Wert mehr durch entfernte Punkte beeinflusst
 - zur Berechnung eines Punktes werden alle Werte der anderen Punkte miteinbezogen
@@ -131,9 +141,11 @@ Deshalb häufig, bevorzugung einfacher Repräsentationen, da meist leicher optim
 	- interpolierter Wert strebt zu Mittelwert
 
 #### Modifizierte Shepard-Interpolation
+
 - nur Betrachtung von Punkten, die in Radius $R$ liegen
 
 ### Voronoi-Diagramme
+
 - Zerlegung des Beobachtungsraumes in Voronoizellen 
 - Bestimmung durch vorgegebene Menge an Punkten =**Zentren**
 
@@ -162,7 +174,11 @@ die durch eine vorgegebene Menge an Punkten des Raumes, hier als Zentren bezeich
 	- Unterteilung nach 5 Kriterien
 2. Anforderungen an Visualisierungssystem (4)
 
+
+\newpage
+
 # Skalarfelder
+
 1. Definition Skalarfelder
 2. Falschfarbendarstellung 2D/3D
 	- Einfärbung, Höhenfelder, Isolinien
@@ -176,34 +192,59 @@ die durch eine vorgegebene Menge an Punkten des Raumes, hier als Zentren bezeich
 
 
 
+\newpage
+
+# Vektorfelder
+
+\newpage
+
+# Merkmalskurven
+
+\newpage
+
+# Skalartopologie
+
+\newpage
+
+# Konturbaum
+
+\newpage
+
+# Volumenvisualisierung
+
 
 
 HIer ganz viel anderes Zeug
 
 
+\newpage
 
 # Vektorfeldtopologie
 
 ## Motivation
+
 - nicht der einzelne Vektor entscheidend
 - wichtiger: Unterteilung Feld in Bereiche gleichen Stromlinienverhaltens
-- Betrachtung von Vektorfeldern, deren Divergenz *nicht* verschwindet $\rightarrow$ nicht quellfrei
+- Betrachtung von Vektorfeldern, deren Divergenz *nicht* verschwindet $\rightarrow$ d.h. nicht quellfrei sind
 
 ## Start-, Zielmenge
-- Stromlinie $c:I-->D$ 
-- stationäres Vektorfeld $v:D\rightarrow\mathbb{R^d}$
-- Startmenge: $A(c_p)=\left\{q\in D |\exists t_{n=0}^\infty\in \mathbb{R}, t_n\rightarrow \infty, \lim\limits_{n\to\infty} c_p(t_n)=q\right\}$
-- Zielmenge: $\Omega(c_p)=\left\{q\in D |\exists t_{n=0}^\infty\in \mathbb{R}, t_n\rightarrow \infty, \lim\limits_{n\to\infty} v_c(t_n)=q\right\}$
 
-## Vektorfeldtopologie
+- Stromlinie $c:I \rightarrow D$ 
+- stationäres Vektorfeld $v:D\rightarrow\mathbb{R^d}$
+- Startmenge: $A(c_{p})=\left\{q\in D |\exists t_{n=0}^\infty\in \mathbb{R}, t_{n}\rightarrow \infty, \lim\limits_{n\to\infty} c_{p}(t_{n})=q\right\}$
+- Zielmenge: $\Omega(c_{p})=\left\{q\in D |\exists t_{n=0}^\infty\in \mathbb{R}, t_{n}\rightarrow \infty, \lim\limits_{n\to\infty} v_{c}(t_{n})=q\right\}$
+
 - i.A. Menge aller Becken (engl. Basin) endlich ***Wie ist das mit den Becken zu verstehen?***
-- **Vektorfeldtopolgie ergibt sich Zerlegung der Domäne in zusammenhängende Komponenten der Schnitte von Start- und Zielmenge**
+- **Vektorfeldtopolgie ergibt sich als Zerlegung der Domäne in zusammenhängende Komponenten der Schnitte von Start- und Zielmenge**
 	- *zusammenhängend*: es gibt für je zwei Punkte eine stetige Kurve, die diese verbindet
 - für jede Komponente der Zerlegung teilen sich alle Stromlinien eine gemeinsame Start- und Zielmenge
 
 ![](vektorfeld.png)
 
+\newpage
+
 ### Kritische Punkte
+
 - sind Nullstellen des Feldes $\rightarrow$ **Singulariäten**
 - *Start- und Zielmenge eines kritischen Punktes ist der Punkt selbst*
 - **Quelle**  alle Partikel innerhalb Nachbarschaft fließen aus Gebiet heraus
@@ -215,7 +256,11 @@ HIer ganz viel anderes Zeug
 ![](senke.png)
 
 - ***Frage: erste Matrix bei beiden gleich??***
-- **Zentrum** alle Partikel fließen weder zu oder weg von Sattelpunkt
+    - ***sollte bei einer senke negativ sein, oder?? (Martin)***
+
+\newpage
+
+- **Zentrum** alle Partikel fließen weder zu noch weg vom Sattelpunkt
 
 ![](zentrum.png)
 
@@ -226,26 +271,28 @@ HIer ganz viel anderes Zeug
 - Grenzwertbetrachtung über Ableitung des Vektorfeldes, da Feld bei hinreichend kleiner Nachbarschaft als lineares Feld angenommen werden kann
 
 #### Arten kritischer Punkte
+
 - Analyse des Verhaltens um einen kritischen Punkt kann man aus Eigenschaften der Matrix ableiten
-- dazu Bestimmung der komplexen Eigenwerte $\lambda_j=\lambda_j+i\cdot\gamma_j$
+- dazu Bestimmung der komplexen Eigenwerte $\lambda_{j} lambda_{j} + i \cdot \gamma_{j}$
 - zur Bestimmung des Tyos des kritischen Punktes verwendet man lokal lineares Feld
-- **Senke** kritischer Punkt $p\in B$, falls Umgebung $z\in U\subseteq:$
+- **Senke** kritischer Punkt $p \in B$, falls Umgebung $z \in U \subseteq:$
 
 ![](arten_kritischer_punkte.png)
 
 #### Algorithmus zur Bestimmung kritischer Punkte
+
 1. Durchsuche alle Zellen nach Nullstellen im Vektorfeld
 2. Für jede Nullstelle
 	1. Berechnung Jacobimatrix $\rightarrow$ alle partiellen Ableitungen
-	2. Ermittlung (komplexe) Eigenwerte $\lambda_1$, $\lambda_2$
-	3. \re{\lambda_1}, \re{\lambda_2} > 0 $\rightarrow$ Quelle
-	4. \re{\lambda_1}, \re{\lambda_2} < 0 $\rightarrow$ Senke
-	5. \re{\lambda_1}, \re{\lambda_2} = 0 $\rightarrow$ Zentrum
-	6. \re{\lambda_1\cdot \lambda_2} < 0 $\rightarrow$ Sattel
-		- 
+	2. Ermittlung (komplexe) Eigenwerte $\lambda_{1}$, $\lambda_{2}$
+	3. \re{\lambda_{1}}, \re{\lambda_{2}} > 0 $\rightarrow$ Quelle
+	4. \re{\lambda_{1}}, \re{\lambda_{2}} < 0 $\rightarrow$ Senke
+	5. \re{\lambda_{1}}, \re{\lambda_{2}} = 0 $\rightarrow$ Zentrum
+	6. \re{\lambda_{1} \cdot \lambda_{2}} < 0 $\rightarrow$ Sattel
 3. Darstellung aller Singularitäten und Separatrizen
 
 ### Vergleich zu Skalar-, Gradientenfeldern
+
 - wenn Vektorfeld gleich Gradient des Skalarfelder:
 	- Minima werden zu Quellen
 	- Maxima werden zu Senken
@@ -254,11 +301,13 @@ HIer ganz viel anderes Zeug
 	- wirbelfrei, wennn Divergenz nicht verschwindet
 	
 ## Lineare Vektorfelder
+
 - lineares zweidmensionales Vektorfeld $v:\mathbb{R}^2\rightarrow \mathbb{R}^2$ wird vollständig durch 2x2 Matrix A beschrieben
 - $v(x)=Ax$
 - verschwindet Determinante nicht $\rightarrow$ einzige Nullstelle im Koordinatenursprung
 
 ### Separatrizen
+
 - sind Stromlinien
 - Eigenschaften
 	- können geschlossen sein (Zykel)
@@ -270,8 +319,10 @@ HIer ganz viel anderes Zeug
 - Zykel stellen großes Problem in Berechnung dar
 
 
+\newpage
 
 # Kohärente Strukturen
+
 - Methoden zur Analyse zeitabhängiger Felder
 	- Betrachtung fester Zeitpunkt
 	- z.B. Euler $\rightarrow$ Ortszentriert $\rightarrow$ betrachtet Änderung von Größe an festem Ort
@@ -281,27 +332,36 @@ HIer ganz viel anderes Zeug
 	- Partikelzentriert $\rightarrow$ betrachtet Änderungen der Größen für festen Partikel
 
 ## Lagrangian Coherent Structures (LCS)
+
 - keine allgemeingültige Defintion
 - manche Definition mithilfe Wirbeln, andere Zusammenhang mit Grenzschichten
 
 ### Finite Time Lyapunov Exponent (FTLE)
+
 - Idee: Berechnung der Separation von infinitesimal entfernten Partikeln über festgelegte **endliche** Zeitspanne
 
 ![](ftle.png)
 
 #### Flowmap
+
 - gibt für festen Punkt den Endpunkt einer Pfadlinie nach festen Integrationszeit an
 
 #### Berechnung FTLE
+
 - Berechnung mittels Gradienten der Flowmap
 - Die Spektralnorm ist in der Mathematik die von der euklidischen Norm abgeleitete natürliche Matrixnorm. Die Spektralnorm einer Matrix entspricht ihrem maximalen Singulärwert, also der Wurzel des größten Eigenwerts des Produkts der adjungierten (transponierten) Matrix mit dieser Matrix
 - ***komme nicht weiter bei FlowMap***
 
 
+\newpage
+
 # Texturbasierte Techniken
+
 - Darstellung/Analyse von Strömungen mithilfe **Schlierenbilder** 
 
+
 ## Spot Noise
+
 - Zur Darstellung von Strömungsdaten Verwendung von Farbklecksen ("Spots")
 - Formel: $f(x)=\sum_i a_ih(x-x_i)$
 	- $a_i$ ist zufällig mit Erwartungswert 0 zu wählen $\rightarrow$ sonst würde von jedem Punkt der zugehörige Vektor angezeigt werden 
@@ -323,6 +383,7 @@ HIer ganz viel anderes Zeug
 
 
 ### Direct Directional Convolution
+
 - beim DDA-Faltungsverfahren wird Linie in Richtung Vektorfeld gerastert und über diese gemittelt
 - Nachteil: stark gekrümmte Stromlinien verwischen
 
@@ -331,6 +392,7 @@ HIer ganz viel anderes Zeug
 - Nachteile von DDA $\rightarrow$ Verwendung des Integral von Stromlinien (Linienintegralfaltung, Line Integral Convolution)
 
 ## Line Integral Convolution (LIC)
+
 - algorithmische Nachbildung der Schlierenbilder
 - Algorithmus
 	- $c:I\rightarrow D$ Strom-/Pfadlinie mit $c(0)=x_0$ (also ein Punkt)
@@ -339,6 +401,7 @@ HIer ganz viel anderes Zeug
 	- $k(t)$ Filterkern (endlicher Träger ***?***, normalisiert, meist symmetrisch)
 
 ### FastLIC
+
 - Berechnung Integral als Summe
 	- $I(X_i)\approx \sum_{i=i-N}^{i+N}k_iT_i$
 - Und jetzt nochmal in einfach:
@@ -348,6 +411,7 @@ HIer ganz viel anderes Zeug
 	- dadurch Durchlaufen der Linie performanter
 
 ### Erweiterungen LIC
+
 - Probleme LIC
 	- Verlust Richtungsinformationen
 - **Oriented LIC**
@@ -365,8 +429,12 @@ HIer ganz viel anderes Zeug
 		- Rauschen "bewegt sich" auf Oberfläche $\rightarrow$ Lsg: Rückprojektion
 
 
+\newpage
+
 # Merkmalsbestimmung
+
 ## Definition
+
 - im Sinne Visualisierung: Teilmenge des Beobachtungsraum oder Definitiongsmenge, in der alle Punkte eine Bedingung erfüllen 
 - Beispiele
 	- Punktmerkmal: lokal, isoliertes Maximum der Temperatur
@@ -375,6 +443,7 @@ HIer ganz viel anderes Zeug
 	- Regionenmerkmal: die meisten 3D-Wirbeldefinitionen
 
 ## Wirbel
+
 - können geschlossen sein
 - intuitiv klar, mathematisch nciht präzise formulierbar
 - charakterisiert über Drehbewegung von Fluidelementen um gemeinsames Zentrum
@@ -430,6 +499,7 @@ HIer ganz viel anderes Zeug
 		- ***hier fehlt noch was***
 
 ## Seprations- und Anschmiegelinien
+
 - Stellen auf umströmten Gegenstand ...
 	- an denen sich Strömung vom Objekt löst $\rightarrow$ Separationslinien
 	- an denen sich Strömung an Objekt anschmiegt $\rightarrow$ Anschmiegelinien
@@ -442,6 +512,7 @@ HIer ganz viel anderes Zeug
 		- das liefert stetige Kurven
 
 ## Zeitabhängige Daten
+
 - Untersuchung jedes einzelnen Zeitpunktes
 - Identifikation von Merkmalen über Zeit Problem, da Merkmalsfunktion diskrete Werte annimmt $\rightarrow$ unstetige Veränderung Veränderung der Merkmale
 - viele Beispiele (insbesondere Isowertdefinition) deuten auf Möglichkeit stetiger zeitlicher Änderungen hin
@@ -459,7 +530,11 @@ HIer ganz viel anderes Zeug
 	3. Attributberechnung
 	4. Abbildung mit Icons
 
+
+\newpage
+
 # Render-Techniken
+
 - Ziel
 	- Realistische Darstellung mit wenig Rechenaufwand
 	- Effiziente Berechnung dank programmierbarer Grafikkarten
@@ -468,6 +543,7 @@ HIer ganz viel anderes Zeug
 	- Schattierung per Textur oder Shadercode
 
 ## Ambient Occlusion (Umgebungsverdeckung)
+
 - Ziel: mit geringer Renderzeit realistische Verschattung von Szenen zu erreichen
 - Ergebnis nicht physikalisch korrekt, meist ausreichend um auf rechenintensive globale Beleuchtung zu verzichten
 - Funktionsweise
@@ -481,8 +557,13 @@ HIer ganz viel anderes Zeug
 
 ![Zeichnen des Schattens: je weiter Objekt von Lichtquelle entfernt, desto größer Schatten](occluder.png)
 
-# Unnersuve Visualisierung
+
+\newpage
+
+# Immersive Visualisierung
+
 ## Begriffe
+
 - Immersion
 	- "Eintauchen in Szene virtueller Realität"
 	- Traditionelle Darstellung auf Bildschirm, Interaktion mittels Maus/Tastatur, Eingabegeräte 3D bis 6D
@@ -499,6 +580,7 @@ HIer ganz viel anderes Zeug
 	- möglichst realitätsnah (Kopf-, Handbewegungen, haptisches ("fühlbares") Feedback)
 
 ## Augmented Reality (Erweiterte Realität)
+
 - Umsetzung Mobilgeräte
 	- Vorteile
 		- Reale Objekte können genauer beobachtet werden
@@ -549,11 +631,24 @@ HIer ganz viel anderes Zeug
 		- Blickkontakt möglich
 		- Zoom
 
+
+\newpage
+
 # Tensorfelder
+
 ## Zusammenhang Skalar, Vektor, Tensor
+
 - Gradient eines Skalarfeldes ist Vektorfeld 
 	- $v(x):=\nabla s(x)$
 - Gradient eines Vektorfeldes ist Feld, welches an jeder Position eine Matrix als Wert hat
 	- $m(x):=\nabla v(x)$
 - Gradient eines Matrix-Feldes ist Feld, das an jeder Position 3D-Matrix als Wert hat
 
+
+\newpage
+
+# Einführung in die Diffusionsbildgebung
+
+\newpage
+
+# Grundlagen der CFG-Simulation
