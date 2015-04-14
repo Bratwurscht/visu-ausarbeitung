@@ -234,7 +234,8 @@ HIer ganz viel anderes Zeug
 - Startmenge: $A(c_{p})=\left\{q\in D |\exists t_{n=0}^\infty\in \mathbb{R}, t_{n}\rightarrow \infty, \lim\limits_{n\to\infty} c_{p}(t_{n})=q\right\}$
 - Zielmenge: $\Omega(c_{p})=\left\{q\in D |\exists t_{n=0}^\infty\in \mathbb{R}, t_{n}\rightarrow \infty, \lim\limits_{n\to\infty} v_{c}(t_{n})=q\right\}$
 
-- i.A. Menge aller Becken (engl. Basin) endlich ***Wie ist das mit den Becken zu verstehen?***
+- i.A. Menge aller Becken (engl. Basin) endlich
+    * ***Wie ist das mit den Becken zu verstehen?***
 - **Vektorfeldtopolgie ergibt sich als Zerlegung der Domäne in zusammenhängende Komponenten der Schnitte von Start- und Zielmenge**
 	- *zusammenhängend*: es gibt für je zwei Punkte eine stetige Kurve, die diese verbindet
 - für jede Komponente der Zerlegung teilen sich alle Stromlinien eine gemeinsame Start- und Zielmenge
@@ -268,28 +269,8 @@ HIer ganz viel anderes Zeug
 
 ![](sattelpunkt.png)
 
-- Grenzwertbetrachtung über Ableitung des Vektorfeldes, da Feld bei hinreichend kleiner Nachbarschaft als lineares Feld angenommen werden kann
 
-#### Arten kritischer Punkte
-
-- Analyse des Verhaltens um einen kritischen Punkt kann man aus Eigenschaften der Matrix ableiten
-- dazu Bestimmung der komplexen Eigenwerte $\lambda_{j} lambda_{j} + i \cdot \gamma_{j}$
-- zur Bestimmung des Tyos des kritischen Punktes verwendet man lokal lineares Feld
-- **Senke** kritischer Punkt $p \in B$, falls Umgebung $z \in U \subseteq:$
-
-![](arten_kritischer_punkte.png)
-
-#### Algorithmus zur Bestimmung kritischer Punkte
-
-1. Durchsuche alle Zellen nach Nullstellen im Vektorfeld
-2. Für jede Nullstelle
-	1. Berechnung Jacobimatrix $\rightarrow$ alle partiellen Ableitungen
-	2. Ermittlung (komplexe) Eigenwerte $\lambda_{1}$, $\lambda_{2}$
-	3. \re{\lambda_{1}}, \re{\lambda_{2}} > 0 $\rightarrow$ Quelle
-	4. \re{\lambda_{1}}, \re{\lambda_{2}} < 0 $\rightarrow$ Senke
-	5. \re{\lambda_{1}}, \re{\lambda_{2}} = 0 $\rightarrow$ Zentrum
-	6. \re{\lambda_{1} \cdot \lambda_{2}} < 0 $\rightarrow$ Sattel
-3. Darstellung aller Singularitäten und Separatrizen
+\newpage
 
 ### Vergleich zu Skalar-, Gradientenfeldern
 
@@ -302,9 +283,24 @@ HIer ganz viel anderes Zeug
 	
 ## Lineare Vektorfelder
 
+- Grenzwertbetrachtung über Ableitung des Vektorfeldes, da Feld bei hinreichend kleiner Nachbarschaft als lineares Feld angenommen werden kann
 - lineares zweidmensionales Vektorfeld $v:\mathbb{R}^2\rightarrow \mathbb{R}^2$ wird vollständig durch 2x2 Matrix A beschrieben
 - $v(x)=Ax$
 - verschwindet Determinante nicht $\rightarrow$ einzige Nullstelle im Koordinatenursprung
+
+#### Arten kritischer Punkte
+
+- Analyse des Verhaltens um einen kritischen Punkt kann man aus Eigenschaften der Matrix ableiten
+- dazu Bestimmung der komplexen Eigenwerte $\lambda_{j} lambda_{j} + i \cdot \gamma_{j}$
+- zur Bestimmung des Tyos des kritischen Punktes verwendet man lokal lineares Feld
+
+![](arten_kritischer_punkte.png)
+
+- **Senke** kritischer Punkt $p \in B$, falls Umgebung $z \in U \subseteq B$
+    * $\lim\limits_{t \to \infty}c_{p}(t)=p$
+
+- **Quelle** kritischer Punkt $p \in B$, falls Umgebung $z \in U \subseteq B$
+    * $\lim\limits_{t \to -\infty}c_{p}(t)=p$
 
 ### Separatrizen
 
@@ -317,6 +313,20 @@ HIer ganz viel anderes Zeug
 - Sattelpunkte sind wesentliche Punkte zum Finden von Separatrizen
 	- Eigenvektoren an Sattelpunkten geben Orientierung der Separatrizen an
 - Zykel stellen großes Problem in Berechnung dar
+
+
+#### Algorithmus zur Bestimmung kritischer Punkte in 2D
+
+1. Durchsuche alle Zellen nach Nullstellen im Vektorfeld
+2. Für jede Nullstelle
+	1. Berechnung Jacobimatrix $\rightarrow$ alle partiellen Ableitungen
+	2. Ermittlung (komplexe) Eigenwerte $\lambda_{1}$, $\lambda_{2}$
+	3. \re{\lambda_{1}}, \re{\lambda_{2}} > 0 $\rightarrow$ Quelle
+	4. \re{\lambda_{1}}, \re{\lambda_{2}} < 0 $\rightarrow$ Senke
+	5. \re{\lambda_{1}}, \re{\lambda_{2}} = 0 $\rightarrow$ Zentrum
+	6. \re{\lambda_{1} \cdot \lambda_{2}} < 0 $\rightarrow$ Sattel
+3. Darstellung aller Singularitäten und Separatrizen
+
 
 
 \newpage
