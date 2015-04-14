@@ -148,6 +148,7 @@ Deshalb häufig, bevorzugung einfacher Repräsentationen, da meist leicher optim
 
 - Zerlegung des Beobachtungsraumes in Voronoizellen 
 - Bestimmung durch vorgegebene Menge an Punkten =**Zentren**
+* Wird angewandt bei Scattered Data
 
 ![](voronoi.png)
 
@@ -161,13 +162,15 @@ Deshalb häufig, bevorzugung einfacher Repräsentationen, da meist leicher optim
 ![Konvexe Menge](Convex.png)
 ![Nichtkonvexe Menge](Non_Convex.png)
 
-- Bedeutende Repräsentationen
-	1. Array 
-	- ***und wozu das ganze***
-die durch eine vorgegebene Menge an Punkten des Raumes, hier als Zentren bezeichnet, bestimmt werden. Jede Region wird durch genau ein Zentrum bestimmt und umfasst alle Punkte des Raumes, die in Bezug zur euklidischen Metrik näher an dem Zentrum der Region liegen als an jedem anderen Zentrum. Derartige Regionen werden auch als Voronoi-Regionen bezeichnet. Aus allen Punkten, die mehr als ein nächstgelegenes Zentrum besitzen und somit die Grenzen der Regionen bilden, entsteht das Voronoi-Diagramm.
+- Drei bedeutendene Repräsentationen von Voronoidiagrammen
+    1. Ein Array der Voronoiecken (vertices) mit Zeigern zu den zugehörigen Kanten (edges) und Punkten $P_i$ (points)
+    2. Ein Array der Punkte $P_i$ mit Zeigern auf die zugehörigen Kanten des Voronoipolygons.
+    3. Ein Array der Voronoikanten mit Zeigern auf die Nachbarkanten und die beiden angrenzenden Flächen.
+- ***Wozu das ganze:*** Die durch eine vorgegebene Menge an Punkten des Raumes, hier als Zentren bezeichnet, bestimmt werden. Jede Region wird durch genau ein Zentrum bestimmt und umfasst alle Punkte des Raumes, die in Bezug zur euklidischen Metrik näher an dem Zentrum der Region liegen als an jedem anderen Zentrum. Derartige Regionen werden auch als Voronoi-Regionen bezeichnet. Aus allen Punkten, die mehr als ein nächstgelegenes Zentrum besitzen und somit die Grenzen der Regionen bilden, entsteht das Voronoi-Diagramm.
 
+## Gitter I
 
-
+## Gitter II
 
 1. Aufbau von Datensätzen
 	- 3 Bestandteile
